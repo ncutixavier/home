@@ -1,0 +1,33 @@
+{
+  "name": "home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node server.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ncutixavier/home.git"
+  },
+  "author": "elite team_2",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ncutixavier/home/issues"
+  },
+  "homepage": "https://github.com/ncutixavier/home#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "coveralls": "^3.1.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.11.5",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.1.3"
+  }
+}
