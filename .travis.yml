@@ -5,4 +5,3 @@ cache:
     - node_modules
 install : travis_wait 30 npm install
 script : npm test
-after_script : npm run coverage

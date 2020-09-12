@@ -17,10 +17,17 @@ const users = [
 ]
 
 exports.getAllUsers = (req, res) => {
-    res.status(200).send({
-        status: 'Success',
-        users
-    })
+    try {
+        res.status(200).send({
+            status: 'Success',
+            users
+        })
+    } catch (error) {
+        res.status(404).send({
+            status: 'Success',
+            message: 'Data Not found'
+        })
+    }
 }
 
 exports.getUser = (req, res) => {
