@@ -1,5 +1,6 @@
 const express = require('express')
 const userRoute = require('./routes/userRoutes')
+const houseRoute = require('./routes/houseRoutes')
 const app = express()
 
 app.get('/', (req, res) => {
@@ -10,5 +11,6 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/v1/users', userRoute)
+app.use('/api/v1/houses', houseRoute)
 
 module.exports = app

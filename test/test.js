@@ -36,6 +36,29 @@ describe('Home API', () => {
         });
     });
 
+    //Test to get all houses 
+    describe('GET /api/v1/houses', () => {
+        it('It should get all houses', (done) => {
+            chai.request(server)
+                .get('/api/v1/houses')
+                .end((err, res) => {
+                    res.should.have.status(200)
+                    res.body.should.be.a('object')
+                    res.body.should.have.property('Houses')
+                    done()
+                })
+        });
+
+        // it('It should not get all houses', (done) => {
+        //     chai.request(server)
+        //         .get('/api/v1/houses')
+        //         .end((err, res) => {
+        //             res.should.have.status(500)
+        //             done()
+        //         })
+        // });
+    });
+
     //Test to get all users
     describe('GET /api/v1/users/:id', () => {
         it('It should not get user based on id', (done) => {
