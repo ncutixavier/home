@@ -12,10 +12,10 @@ exports.getAllHouses = async (req, res, next) => {
         })
         res.status(200).send({
             status: 'success',
-            Houses: Houses
+            Houses
         })
     } catch (error) {
-        res.send({
+        res.status(400).send({
             status: 'Fail',
             message: error.message
         })
