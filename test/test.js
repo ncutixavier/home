@@ -44,20 +44,18 @@ describe('Home API', () => {
                 .end((err, res) => {
                     res.should.have.status(200)
                     res.body.should.be.a('object')
-                    res.body.should.have.property('Houses')
                     done()
                 })
         });
 
-        // it('It should not get all houses', (done) => {
-        //     chai.request(server)
-        //         .get('/api/v1/houses')
-        //         .end((err, res) => {
-        //             res.should.have.status(404)
-        //             res.body.should.have.property('message')
-        //             done()
-        //         })
-        // });
+        it('It should not get all houses', (done) => {
+            chai.request(server)
+                .get('/api/v1/houses')
+                .end((err, res) => {
+                    res.should.have.status(400)
+                    done()
+                })
+        });
     });
 
     //Test to get all users
