@@ -47,15 +47,6 @@ describe('Home API', () => {
                     done()
                 })
         });
-
-        it('It should not get all houses', (done) => {
-            chai.request(server)
-                .get('/api/v1/houses')
-                .end((err, res) => {
-                    res.should.have.status(400)
-                    done()
-                })
-        });
     });
 
     //Test to get all users
