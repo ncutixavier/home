@@ -15,7 +15,7 @@ exports.getAllHouses = async (req, res, next) => {
             Houses: Houses
         })
     } catch (error) {
-        res.status(404).send({
+        res.send({
             status: 'Fail',
             message: error.message
         })
