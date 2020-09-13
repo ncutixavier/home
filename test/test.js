@@ -53,7 +53,8 @@ describe('Home API', () => {
         //     chai.request(server)
         //         .get('/api/v1/houses')
         //         .end((err, res) => {
-        //             res.should.have.status(500)
+        //             res.should.have.status(404)
+        //             res.body.should.have.property('message')
         //             done()
         //         })
         // });

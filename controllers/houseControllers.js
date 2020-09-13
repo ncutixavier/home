@@ -1,6 +1,6 @@
 const models = require('../database/models');
 
-exports.getAllHouses = async (req, res) => {
+exports.getAllHouses = async (req, res, next) => {
     try {
         const Houses = await models.House.findAll({
             include: [
@@ -15,9 +15,10 @@ exports.getAllHouses = async (req, res) => {
             Houses
         })
     } catch (error) {
-        res.status(500).send({
+        res.send({
             status: 'Fail',
             message: error.message
         })
     }
+    next()
 }
