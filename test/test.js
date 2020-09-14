@@ -17,7 +17,6 @@ describe('Home API', () => {
                 .get('/')
                 .end((err, res) => {
                     res.should.have.status(200)
-                    res.body.should.be.a('object')
                     done()
                 })
         });
@@ -36,27 +35,14 @@ describe('Home API', () => {
         });
     });
 
-    //Test to get all houses 
-    describe('GET /api/v1/houses', () => {
-        it('It should get all houses', (done) => {
-            chai.request(server)
-                .get('/api/v1/houses')
-                .end((err, res) => {
-                    res.should.have.status(200)
-                    res.body.should.be.a('object')
-                    done()
-                })
-        });
-    });
-
-    //Test to get all users
+    //Test to get user by id
     describe('GET /api/v1/users/:id', () => {
         it('It should not get user based on id', (done) => {
-            const userID = 12
+            const userID = 123
             chai.request(server)
                 .get('/api/v1/users/' + userID)
                 .end((err, res) => {
-                    res.should.have.status(404)
+                    res.should.have.status(400)
                     res.body.should.have.property('message')
                     res.body.should.have.property('message').eq('Invalid user id')
                     done()
@@ -76,4 +62,44 @@ describe('Home API', () => {
         });
     });
 
+    //Test to get all houses 
+    describe('GET /api/v1/houses', () => {
+        it('It should get all houses', (done) => {
+            chai.request(server)
+                .get('/api/v1/houses')
+                .end((err, res) => {
+                    res.should.have.status(200)
+                    res.body.should.be.a('object')
+                    res.body.should.be.property('houses')
+                    done()
+                })
+        });
+    });
+
+    //Test to get house by id
+    describe('GET /api/v1/houses/:id', () => {
+        it('It should not get house based on id', (done) => {
+            const houseID = 12
+            chai.request(server)
+                .get('/api/v1/houses/' + houseID)
+                .end((err, res) => {
+                    res.should.have.status(404)
+                    res.body.should.have.property('message')
+                    res.body.should.have.property('message').eq('Invalid house id')
+                    done()
+                })
+        });
+
+        it('It should get house based on id', (done) => {
+            const houseID = 1
+            chai.request(server)
+                .get('/api/v1/houses/' + houseID)
+                .end((err, res) => {
+                    res.should.have.status(200)
+                    res.body.should.be.a('object')
+                    res.body.should.have.property('house')
+                    done()
+                })
+        });
+    });
 });

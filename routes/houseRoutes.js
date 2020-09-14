@@ -7,4 +7,8 @@ router
     .route('/')
     .get(houseController.getAllHouses)
 
+router
+    .route('/:id')
+    .get(houseController.getHouse)
+
 module.exports = router
