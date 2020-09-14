@@ -46,22 +46,22 @@ describe('Home API', () => {
 
     //Test to get user by id
     describe('GET /api/v1/users/:id', () => {
-        it('It should not get user based on id', async () => {
-            try {
-                const userID = 123
-                const res = await chai.request(server)
-                res
-                    .get('/api/v1/users/' + userID)
-                    .end((err, res) => {
-                        res.should.have.status(400)
-                        res.body.should.have.property('message')
-                        res.body.should.have.property('message').eq('Invalid user id')
+        // it('It should not get user based on id', async () => {
+        //     try {
+        //         const userID = 123
+        //         const res = await chai.request(server)
+        //         res
+        //             .get('/api/v1/users/' + userID)
+        //             .end((err, res) => {
+        //                 res.should.have.status(400)
+        //                 res.body.should.have.property('message')
+        //                 res.body.should.have.property('message').eq('Invalid user id')
 
-                    })
-            } catch (error) {
-                console.log(error)
-            }
-        });
+        //             })
+        //     } catch (error) {
+        //         console.log(error)
+        //     }
+        // });
 
         it('It should get user based on id', async () => {
             try {

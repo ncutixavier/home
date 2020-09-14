@@ -16,27 +16,20 @@ exports.getAllUsers = async (req, res) => {
 }
 
 exports.getUser = async (req, res) => {
-    try {
-        const user = await models.User.findAll({
-            where: {
-                id: req.params.id
-            }
-        })
-        if (user.length == 0) {
-            res.status(400).send({
-                status: 'Fail',
-                message: 'Invalid user id'
-            })
-        } else {
-            res.status(200).send({
-                status: 'Success',
-                user
-            })
+    const user = await models.User.findAll({
+        where: {
+            id: req.params.id
         }
-    } catch (error) {
-        res.status(404).send({
+    })
+    if (user.length == 0) {
+        res.status(400).send({
             status: 'Fail',
-            message: error.message
+            message: 'Invalid user id'
+        })
+    } else {
+        res.status(200).send({
+            status: 'Success',
+            user
         })
     }
 }
