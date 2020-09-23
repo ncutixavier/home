@@ -1,0 +1,89 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Home API",
+    "description": "Home API"
+  },
+  "schemes": ["http"],
+  "host": "localhost:3002",
+  "basePath": "/",
+  "paths": {
+    "/": {
+      "get": {
+        "tags": ["Welcome To Home API"],
+        "summary": "Gets Started",
+        "description": "Welcome to HOME API.",
+        "responses": {
+          "200": {
+            "description": "WELCOME!"
+          }
+        }
+      }
+    },
+    "/api/v1/houses": {
+      "get": {
+        "tags": ["Houses"],
+        "summary": "Gets All Houses",
+        "description": "Returns a list containing all houses.",
+        "responses": {
+          "200": {
+            "description": "A list of House"
+          }
+        }
+      }
+    },
+    "/api/v1/houses/{houseId}": {
+      "parameters": [
+        {
+          "name": "houseId",
+          "in": "path",
+          "required": true,
+          "description": "ID of house that we want to find",
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "tags": ["Houses"],
+        "summary": "Get house with given ID",
+        "responses": {
+          "200": {
+            "description": "House is found"
+          }
+        }
+      }
+    },
+    "/api/v1/users": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Gets All users",
+        "description": "Returns a list containing all users.",
+        "responses": {
+          "200": {
+            "description": "A list of House"
+          }
+        }
+      }
+    },
+    "/api/v1/users/{userId}": {
+      "parameters": [
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true,
+          "description": "ID of user that we want to find",
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get user with given ID",
+        "responses": {
+          "200": {
+            "description": "User is found"
+          }
+        }
+      }
+    }
+  }
+}
